@@ -97,3 +97,98 @@
   align-items: center;
   height: 100%;;
 }
+
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(to bottom right, red, yellow, green);
+  border-radius: 50%;
+}
+
+ .square {
+   width: 100px;
+   height: 100px;
+   background: linear-gradient(to bottom right, blue, cyan, purple);
+ }
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid transparent;
+  position: relative;
+}
+
+.triangle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50px;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid;
+  /* background: linear-gradient(to bottom right, red, yellow, green); */
+ 
+}
+
+.star {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(to bottom right, orange, pink, purple);
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.empty-circle {
+  width: 100px;
+  height: 100px;
+  border: 5px solid red;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.empty-square {
+  width: 100px;
+  height: 100px;
+  border: 5px solid;
+  border-image: linear-gradient(45deg, blue, cyan, purple) 1;
+  background: transparent;
+}
+
+.empty-triangle {
+  --b: 10px;
+  /* control the border thickness */
+
+  width: 180px;
+  aspect-ratio: 1/cos(30deg);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%, 50% 0, 50% var(--b), calc(var(--b)*cos(30deg)) calc(100% - var(--b)/2), calc(100% - var(--b)*cos(30deg)) calc(100% - var(--b)/2), 50% var(--b));
+  background: linear-gradient(45deg, #FA6900, #C02942);
+}
+
+ .empty-star {
+   width: 300px;
+   aspect-ratio: 1;
+   background: #F8CA00;
+   clip-path: polygon(50% 0,
+       calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
+       calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+       calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+       calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
+   /* or more simple
+  clip-path: polygon(50% 0,79% 90%,2% 35%,98% 35%,21% 90%); 
+   */
+ }
