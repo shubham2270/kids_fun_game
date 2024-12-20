@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import Confetti from "react-confetti";
 import gameStartSound from "./sounds/game-start.mp3";
 import selectSound from "./sounds/select-sound.mp3";
 import correctSound from "./sounds/correct-sound.mp3";
 import wrongSound from "./sounds/wrong-sound.mp3";
 import restartSound from "./sounds/restart-sound.mp3";
 import bgSound from "./sounds/bg-music.mp3";
+import winningSound from "./sounds/winning.mp3";
 
 const shapes = [
   { id: 1, name: "circle" },
@@ -29,8 +31,9 @@ function App() {
   const [showPopup, setShowPopup] = useState(false);
   const soundRef = React.useRef(false);
 
-  const playSound = (sound) => {
+  const playSound = (sound, vol) => {
     const audio = new Audio(sound);
+    audio.volume = vol || 1;
     audio.play();
   };
 
@@ -62,9 +65,6 @@ function App() {
       // Check if all shapes are matched
       if (updatedTargets.every((target) => target.isMatched)) {
         setShowPopup(true);
-        setTimeout(() => {
-          handleRestart();
-        }, 3000); // Restart the game after 3 seconds
       }
     } else {
       playSound(wrongSound);
@@ -85,6 +85,8 @@ function App() {
       playBgSound();
       soundRef.current = true;
     }
+    setCurrentTargets(targets);
+    setShowPopup(false);
     playSound(gameStartSound);
     setIsGameStarted(true);
   };
@@ -93,8 +95,16 @@ function App() {
     <div className='app'>
       {showPopup && (
         <div className='popup'>
+          {playSound(winningSound, 0.2)}
           <h2 className='win-text'>You Win!</h2>
-          <p className='restart'>Restarting the game...</p>
+          <p className='restart'>
+            <button className='restart-button' onClick={handleStartGame}>
+              Restart Game
+            </button>
+          </p>
+          <div className='confetti'>
+            <Confetti width={window.innerWidth} height={window.innerHeight} />
+          </div>
         </div>
       )}
       {!isGameStarted ? (
@@ -140,7 +150,7 @@ function App() {
             </div>
           </div>
           <button className='restart-button' onClick={handleRestart}>
-            Restart Game
+            Home
           </button>
         </div>
       )}
