@@ -26,6 +26,7 @@ function App() {
   const [dragging, setDragging] = useState(null);
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [currentTargets, setCurrentTargets] = useState(targets);
+  const [showPopup, setShowPopup] = useState(false);
   const soundRef = React.useRef(false);
 
   const playSound = (sound) => {
@@ -49,15 +50,22 @@ function App() {
     const draggedShape = shapes.find((shape) => shape.id === dragging);
     if (dragging === id) {
       setScore(score + 1);
-      setCurrentTargets(
-        [...currentTargets].map((target) => {
-          if (target.id === id) {
-            return { ...target, isMatched: true };
-          }
-          return target;
-        })
-      );
+      const updatedTargets = currentTargets.map((target) => {
+        if (target.id === id) {
+          return { ...target, isMatched: true };
+        }
+        return target;
+      });
+      setCurrentTargets(updatedTargets);
       playSound(correctSound);
+
+      // Check if all shapes are matched
+      if (updatedTargets.every((target) => target.isMatched)) {
+        setShowPopup(true);
+        setTimeout(() => {
+          handleRestart();
+        }, 3000); // Restart the game after 3 seconds
+      }
     } else {
       playSound(wrongSound);
       setDragging(null);
@@ -65,8 +73,10 @@ function App() {
   };
 
   const handleRestart = () => {
+    setCurrentTargets(targets);
     setScore(0);
     setIsGameStarted(false);
+    setShowPopup(false);
     playSound(restartSound);
   };
 
@@ -81,12 +91,20 @@ function App() {
 
   return (
     <div className='app'>
+      {showPopup && (
+        <div className='popup'>
+          <h2 className='win-text'>You Win!</h2>
+          <p className='restart'>Restarting the game...</p>
+        </div>
+      )}
       {!isGameStarted ? (
         <div className='start-screen'>
-          <h1>Fun Shape Matching Game</h1>
-          <button className='start-button' onClick={handleStartGame}>
-            Start Game
-          </button>
+          <div className='content'>
+            <h1>Fun Shape Matching Game</h1>
+            <button className='start-button' onClick={handleStartGame}>
+              Start Game
+            </button>
+          </div>
         </div>
       ) : (
         <div className='game-screen'>
