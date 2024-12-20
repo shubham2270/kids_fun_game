@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/kids_fun_game/static/css/main.f690fb2e.css",
+    "main.js": "/kids_fun_game/static/js/main.847a4774.js",
+    "static/media/bg-music.mp3": "/kids_fun_game/static/media/bg-music.176e67015c21456a7391.mp3",
+    "static/media/bg_toy1.jpg": "/kids_fun_game/static/media/bg_toy1.ceeb1f33af3ebc7ba2fb.jpg",
+    "static/media/background.jpg": "/kids_fun_game/static/media/background.71c13fd22e32028e5f1a.jpg",
+    "static/media/winning.mp3": "/kids_fun_game/static/media/winning.d635dfce0d908b66cc52.mp3",
+    "static/media/game-start.mp3": "/kids_fun_game/static/media/game-start.31f371aa54d6099a48e0.mp3",
+    "static/media/wrong-sound.mp3": "/kids_fun_game/static/media/wrong-sound.50d8ae0d24e5bb72aaf2.mp3",
+    "static/media/restart-sound.mp3": "/kids_fun_game/static/media/restart-sound.eb6049e081c3bdaf68a0.mp3",
+    "static/media/correct-sound.mp3": "/kids_fun_game/static/media/correct-sound.ed3894f877249fd39ddf.mp3",
+    "static/media/select-sound.mp3": "/kids_fun_game/static/media/select-sound.96966333aa989c794362.mp3",
+    "index.html": "/kids_fun_game/index.html",
+    "main.f690fb2e.css.map": "/kids_fun_game/static/css/main.f690fb2e.css.map",
+    "main.847a4774.js.map": "/kids_fun_game/static/js/main.847a4774.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f690fb2e.css",
+    "static/js/main.847a4774.js"
+  ]
+}
