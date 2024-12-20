@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c9e41e56.css",
+    "main.js": "/static/js/main.6e2c13ef.js",
+    "static/media/bg-music.mp3": "/static/media/bg-music.176e67015c21456a7391.mp3",
+    "static/media/bg_toy1.jpg": "/static/media/bg_toy1.ceeb1f33af3ebc7ba2fb.jpg",
+    "static/media/background.jpg": "/static/media/background.71c13fd22e32028e5f1a.jpg",
+    "static/media/winning.mp3": "/static/media/winning.d635dfce0d908b66cc52.mp3",
+    "static/media/game-start.mp3": "/static/media/game-start.31f371aa54d6099a48e0.mp3",
+    "static/media/wrong-sound.mp3": "/static/media/wrong-sound.50d8ae0d24e5bb72aaf2.mp3",
+    "static/media/restart-sound.mp3": "/static/media/restart-sound.eb6049e081c3bdaf68a0.mp3",
+    "static/media/correct-sound.mp3": "/static/media/correct-sound.ed3894f877249fd39ddf.mp3",
+    "static/media/select-sound.mp3": "/static/media/select-sound.96966333aa989c794362.mp3",
+    "index.html": "/index.html",
+    "main.c9e41e56.css.map": "/static/css/main.c9e41e56.css.map",
+    "main.6e2c13ef.js.map": "/static/js/main.6e2c13ef.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c9e41e56.css",
+    "static/js/main.6e2c13ef.js"
+  ]
+}
